@@ -20,7 +20,6 @@ class EntityLocker {
          * If timeout not set try to acquire lock infinitely.
          * @throws TimeoutException when lock not acquired during non-zero timeout.
          */
-
         @JvmStatic
         fun tryLockAndExecute(id: Any, timeout: Long = 0, protectedCode: Runnable) {
             val lock = locks.computeIfAbsent(id) { ReentrantLock(true) }
